@@ -1,0 +1,56 @@
+<FileScreen>
+    orientation: "vertical"
+    Label:
+        size_hint_y: .7
+        halign: 'center'
+        text_size: self.size
+        font_size: '20sp'
+        text: "Score Threshold:\n 0 means you'll only be asked about things with the same score.\n 1 means you'll only be asked about things whose scores differ by at most 1.\n Enter 10 if you want to manually compare everything.\n\n\n\n"
+    TextInput:
+        size_x: 200
+        height: 80
+        size_hint_y: None
+        font_size: '50sp'
+        id: score_diff
+    Button:
+        size_hint_y: .3
+        size_x: 400
+        text: "Ok"
+        on_press: root.press()
+
+<ChoiceScreen>:
+    leftstr: "Left"
+    rightstr: "Right"
+    leftimg: "pics/9756.jpg"
+    rightimg: "pics/5081.jpg"
+    cols: 2
+    Image:
+        size_hint_y: .7
+        allow_stretch: True
+        source: root.leftimg
+    Image:
+        size_hint_y: .7
+        allow_stretch: True
+        source: root.rightimg
+    Label:
+        text_size: self.size
+        halign: 'center'
+        valign: 'middle'
+        font_size: '20sp'
+        size_hint_y: .15
+        text: root.leftstr
+    Label:
+        text_size: self.size
+        halign: 'center'
+        valign: 'middle'
+        font_size: '20sp'
+        size_hint_y: .15
+        text: root.rightstr
+    Button:
+        size_hint_y: .15
+        id: left_button
+        on_press: root.pressleft()
+    Button:
+        size_hint_y: .15
+        id: right_button
+        on_press: root.pressright()
