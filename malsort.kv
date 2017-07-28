@@ -1,28 +1,43 @@
 <FileScreen>
     orientation: "vertical"
+    TextInput:
+        size_hint_y: .1
+        text: "mal.xml"
+        id: xmlfile
+    Button:
+        size_hint_y: .1
+        text: "Import new .xml document"
+        on_press: root.import_press()
     Label:
-        size_hint_y: .7
-        halign: 'center'
+        size_hint_y: .3
+        halign: "center"
         text_size: self.size
         font_size: '20sp'
-        text: "Score Threshold:\n 0 means you'll only be asked about things with the same score.\n 1 means you'll only be asked about things whose scores differ by at most 1.\n Enter 10 if you want to manually compare everything.\n\n\n\n"
+        text: "Score Threshold:\n 0 means you'll only be asked about things with the same score.\n 1 means you'll only be asked about things whose scores differ by at most 1.\n Enter 10 if you want to manually compare everything.\n"
     TextInput:
-        size_x: 200
-        height: 80
-        size_hint_y: None
-        font_size: '50sp'
+        size_hint_y: .1   
+        text: "10"
+        font_size: '20sp'
         id: score_diff
+    Label:
+        size_hint_y: .2
+        halign: "center"
+        text_size: self.size
+        font_size: '20sp'
+        text: "How many items would you like to sort?\n Note that each new item insertion will take several comparisons.\n"
+    TextInput:
+        text: "15"
+        size_hint_y: .1
+        font_size: '20sp'
+        id: rounds
     Button:
-        size_hint_y: .3
-        size_x: 400
-        text: "Ok"
-        on_press: root.press()
+        size_hint_y: .1
+        text: "Begin Sorting"
+        on_press: root.ok_press()
 
 <ChoiceScreen>:
     leftstr: "Left"
     rightstr: "Right"
-    leftimg: "pics/9756.jpg"
-    rightimg: "pics/5081.jpg"
     cols: 2
     Image:
         size_hint_y: .7
